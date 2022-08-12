@@ -85,31 +85,21 @@ Use the finalScore function below to do the following:
 */ 
 
 function finalScore(callback, inningsNum){
-  const scoreObj = {
-    away: 0,
-    home: 0
-  } /*away score*/
-      function awayScore() {
-        for (let i = 0; i < inningsNum; i++) {
-        scoreObj.away = (scoreObj.away + callback());
-        }
-         /* home score */
-        function homeScore() {
-          for (let i = 0; i < inningsNum; i++) {
-            scoreObj.home = (scoreObj.home + callback());
-          return scoreObj;
-          }
-        }
-        homeScore();
-      }
-  awayScore();
+  let awayScore = 0;
+  let homeScore = 0;
 
-  return scoreObj;
+        for (let i = 0; i < inningsNum; i++) {
+          awayScore = (awayScore + callback());
+          homeScore = (homeScore + callback());
+          }
+  return {
+    Home: homeScore,
+    Away: awayScore
+  }
 }
 
 const gameSim = finalScore();
 console.log(finalScore(inning, 9));
-// console.log(function finalScore(inning, 9));
 
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -125,11 +115,14 @@ For example: invoking getInningScore(inning) might return this object:
   */
 
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-
+function getInningScore(callback) {
+  return {
+    Away: callback(),
+    Home: callback()
+    }
 }
 
+console.log(getInningScore(inning));
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
