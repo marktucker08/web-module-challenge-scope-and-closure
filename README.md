@@ -82,8 +82,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+The closure is in the inner return function that generates the random number. You can tell because of the return statement.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+The name is always the same and the return string. The rolled number is always random.
 c. What is the lexical scope of `newRoll`? 
+within the return function curly braces.
 
 
 ### Task 3 - Stretch Goals
